@@ -1,8 +1,15 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f4c3a; /* Deep Forest (Premium Typography) */
+
+  /* Brand Colors */
+  --emerald-leaf: #0f8a5f;
+  --glass-neutral: #eaf0f3;
+  --deep-forest: #0f4c3a;
+  --amber-brew: #c97a36;
+  --soft-cream: #f8f4ec;
 }
 
 @theme inline {
@@ -10,17 +17,50 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand Colors */
+  --color-emerald-leaf: var(--emerald-leaf);
+  --color-glass-neutral: var(--glass-neutral);
+  --color-deep-forest: var(--deep-forest);
+  --color-amber-brew: var(--amber-brew);
+  --color-soft-cream: var(--soft-cream);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #03120e; /* Darker Deep Forest */
+    --foreground: #f8f4ec; /* Soft Cream */
   }
 }
 
+/* Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--amber-brew);
+  color: white;
+}
+
+/* Utilities */
+@layer utilities {
+  .glass {
+    background: rgba(234, 240, 243, 0.6); /* Glass Neutral with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(15, 76, 58, 0.6); /* Deep Forest with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
