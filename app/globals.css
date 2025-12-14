@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
+  --background: #f8f4ec;
   --foreground: #0f4c3a; /* Deep Forest (Premium Typography) */
 
   /* Brand Colors */
@@ -10,6 +10,7 @@
   --deep-forest: #0f4c3a;
   --amber-brew: #c97a36;
   --soft-cream: #f8f4ec;
+  --crimson-berry: #db4437;
 }
 
 @theme inline {
@@ -24,6 +25,7 @@
   --color-deep-forest: var(--deep-forest);
   --color-amber-brew: var(--amber-brew);
   --color-soft-cream: var(--soft-cream);
+  --color-crimson-berry: var(--crimson-berry);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -39,17 +39,17 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-soft-cream px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg border border-emerald-leaf/10">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-deep-forest">
             Create your account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-deep-forest/80">
             Already have an account?{' '}
             <Link
               href="/sign-in"
-              className="font-medium text-indigo-600 hover:text-indigo-500">
+              className="font-medium text-emerald-leaf hover:text-emerald-leaf/80 transition-colors">
               Sign in
             </Link>
           </p>
@@ -65,7 +65,7 @@ export default function SignUpPage() {
                 name="name"
                 type="text"
                 required
-                className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
+                className="relative block w-full rounded-t-md border-0 py-1.5 text-deep-forest ring-1 ring-inset ring-emerald-leaf/30 placeholder:text-deep-forest/40 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-emerald-leaf sm:text-sm sm:leading-6 px-3 bg-white"
                 placeholder="Full Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -80,7 +80,7 @@ export default function SignUpPage() {
                 name="email"
                 type="email"
                 required
-                className="relative block w-full border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
+                className="relative block w-full border-0 py-1.5 text-deep-forest ring-1 ring-inset ring-emerald-leaf/30 placeholder:text-deep-forest/40 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-emerald-leaf sm:text-sm sm:leading-6 px-3 bg-white"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -95,7 +95,7 @@ export default function SignUpPage() {
                 name="password"
                 type="password"
                 required
-                className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
+                className="relative block w-full rounded-b-md border-0 py-1.5 text-deep-forest ring-1 ring-inset ring-emerald-leaf/30 placeholder:text-deep-forest/40 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-emerald-leaf sm:text-sm sm:leading-6 px-3 bg-white"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -104,14 +104,16 @@ export default function SignUpPage() {
           </div>
 
           {error && (
-            <div className="text-red-500 text-sm text-center">{error}</div>
+            <div className="text-crimson-berry text-sm text-center font-medium bg-crimson-berry/5 py-2 rounded-md border border-crimson-berry/10">
+              {error}
+            </div>
           )}
 
           <div>
             <button
               type="submit"
               disabled={loading}
-              className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50">
+              className="group relative flex w-full justify-center rounded-md bg-emerald-leaf px-3 py-2 text-sm font-semibold text-white hover:bg-emerald-leaf/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-leaf disabled:opacity-50 transition-all shadow-sm hover:shadow-md">
               {loading ? 'Creating account...' : 'Sign up'}
             </button>
           </div>

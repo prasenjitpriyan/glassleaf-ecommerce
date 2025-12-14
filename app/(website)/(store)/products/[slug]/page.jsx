@@ -18,7 +18,7 @@ export default async function ProductPage({ params }) {
 
   return (
     <div className="grid md:grid-cols-2 gap-8">
-      <div className="relative h-96 bg-gray-100 rounded-lg overflow-hidden">
+      <div className="relative h-96 bg-soft-cream/50 rounded-lg overflow-hidden border border-emerald-leaf/10">
         {product.mainImage && (
           <Image
             src={urlFor(product.mainImage).url()}
@@ -29,13 +29,13 @@ export default async function ProductPage({ params }) {
         )}
       </div>
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
+        <h1 className="text-3xl font-bold text-deep-forest mb-4">
           {product.title}
         </h1>
-        <p className="text-2xl font-semibold text-gray-900 mb-6">
+        <p className="text-2xl font-semibold text-deep-forest/90 mb-6">
           ${product.price}
         </p>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        <button className="bg-emerald-leaf text-white px-6 py-3 rounded-lg hover:bg-emerald-leaf/90 transition-colors font-medium shadow-sm hover:shadow-md">
           Add to Cart
         </button>
       </div>
