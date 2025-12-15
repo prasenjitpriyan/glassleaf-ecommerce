@@ -1,35 +1,24 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { geistMono, geistSans } from '../fonts';
 import '../globals.css';
 import Footer from './(components)/footer';
 import Navbar from './(components)/navbar';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata = {
   title: 'GlassLeaf Tea | Pure Tea, Clearly Crafted',
   description: 'Premium organic tea presented with transparency and purity.',
   icons: {
-    icon: '/images/favicon.png',
+    icon: '/images/icon.png',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <body
+      suppressHydrationWarning={true}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <Navbar />
+      {children}
+      <Footer />
+    </body>
   );
 }
