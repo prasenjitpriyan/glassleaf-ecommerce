@@ -13,12 +13,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <body
-      suppressHydrationWarning={true}
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <Navbar />
-      {children}
-      <Footer />
-    </body>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
