@@ -27,8 +27,8 @@ export default function SignInPage() {
       if (result?.error) {
         setError('Invalid email or password');
       } else {
-        router.refresh();
-        router.push('/');
+        // Force a hard reload to ensure server components update with the new session
+        window.location.href = '/';
       }
     } catch (err) {
       setError('Something went wrong');
