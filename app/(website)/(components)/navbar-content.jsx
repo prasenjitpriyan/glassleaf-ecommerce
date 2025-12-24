@@ -53,7 +53,7 @@ export default function NavbarContent({ session, signOutAction }) {
                   alt="GlassLeaf Tea"
                   width={40}
                   height={40}
-                  className="h-10 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                  className="h-10 rounded-full w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                 />
               </div>
               <span

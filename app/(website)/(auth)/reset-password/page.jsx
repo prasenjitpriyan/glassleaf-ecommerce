@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
+import AnimatedLogo from '../../(components)/animated-logo';
 
 function ResetPasswordFlow() {
   const router = useRouter();
@@ -68,8 +69,9 @@ function ResetPasswordFlow() {
 
   return (
     <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg border border-emerald-leaf/10">
-      <div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-deep-forest">
+      <div className="flex flex-col items-center">
+        <AnimatedLogo className="w-24 h-24 mb-4" />
+        <h2 className="mt-2 text-center text-3xl font-extrabold text-deep-forest">
           Reset Password
         </h2>
       </div>

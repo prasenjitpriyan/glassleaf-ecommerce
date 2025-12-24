@@ -7,7 +7,7 @@ import LeafAnimation from './(components)/leaf-animation';
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] bg-soft-cream">
-      <div className="text-center max-w-2xl px-4">
+      <div className="text-center max-w-2xl px-4 flex flex-col items-center">
         <LeafAnimation />
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

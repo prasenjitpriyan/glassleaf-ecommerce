@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import AnimatedLogo from '../../(components)/animated-logo';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
@@ -39,8 +40,9 @@ export default function ForgotPasswordPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-soft-cream px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg border border-emerald-leaf/10">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-deep-forest">
+        <div className="flex flex-col items-center">
+          <AnimatedLogo className="w-24 h-24 mb-4" />
+          <h2 className="mt-2 text-center text-3xl font-extrabold text-deep-forest">
             Forgot Password
           </h2>
           <p className="mt-2 text-center text-sm text-deep-forest/80">
