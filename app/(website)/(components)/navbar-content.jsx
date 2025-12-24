@@ -58,7 +58,7 @@ export default function NavbarContent({ session, signOutAction }) {
               </div>
               <span
                 className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${
-                  isScrolled ? 'text-soft-cream' : 'text-deep-forest'
+                  isScrolled ? 'text-soft-cream' : 'text-foreground'
                 }`}>
                 GlassLeaf Tea
               </span>
@@ -76,7 +76,7 @@ export default function NavbarContent({ session, signOutAction }) {
                       ? 'text-emerald-leaf'
                       : isScrolled
                         ? 'text-soft-cream/90'
-                        : 'text-deep-forest/80'
+                        : 'text-foreground/80'
                   }`}>
                   {link.name}
                   {pathname === link.href && (
@@ -96,7 +96,7 @@ export default function NavbarContent({ session, signOutAction }) {
                     className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all duration-300 ${
                       isScrolled
                         ? 'border-white/20 hover:bg-white/10 text-soft-cream'
-                        : 'border-deep-forest/10 hover:bg-deep-forest/5 text-deep-forest'
+                        : 'border-deep-forest/10 hover:bg-deep-forest/5 text-foreground'
                     }`}>
                     <div className="w-6 h-6 rounded-full bg-linear-to-br from-emerald-leaf to-deep-forest flex items-center justify-center text-xs text-white font-medium">
                       {session.user?.name?.[0] || 'U'}
@@ -151,7 +151,7 @@ export default function NavbarContent({ session, signOutAction }) {
               className={`md:hidden p-2 rounded-lg transition-colors ${
                 isScrolled
                   ? 'text-soft-cream hover:bg-white/10'
-                  : 'text-deep-forest hover:bg-black/5'
+                  : 'text-foreground hover:bg-black/5'
               }`}>
               <div className="w-6 h-5 relative flex flex-col justify-between">
                 <span

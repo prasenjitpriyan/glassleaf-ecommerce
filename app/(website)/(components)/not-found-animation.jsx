@@ -48,14 +48,14 @@ export default function NotFoundAnimation() {
         <path
           ref={leafRef}
           d="M50 85C50 85 80 60 85 40C90 20 70 5 50 15C30 5 10 20 15 40C20 60 50 85 50 85Z"
-          className="stroke-deep-forest fill-deep-forest/5 dark:stroke-emerald-leaf dark:fill-emerald-leaf/10 drop-shadow-lg"
+          className="stroke-deep-forest fill-deep-forest/5 drop-shadow-lg"
           strokeWidth="1.5"
         />
         {/* Center vein */}
         <path
           ref={leafRef}
           d="M50 85C50 85 45 55 50 30"
-          className="stroke-deep-forest dark:stroke-emerald-leaf"
+          className="stroke-deep-forest"
           strokeWidth="1"
           strokeLinecap="round"
         />
@@ -67,7 +67,7 @@ export default function NotFoundAnimation() {
           cy="95"
           rx="30"
           ry="5"
-          className="fill-deep-forest/20 dark:fill-black/40"
+          className="fill-deep-forest/20"
         />
       </svg>
     </div>

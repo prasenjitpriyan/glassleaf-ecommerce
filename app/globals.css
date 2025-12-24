@@ -28,13 +28,6 @@
   --color-crimson-berry: var(--crimson-berry);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #03120e; /* Darker Deep Forest */
-    --foreground: #f8f4ec; /* Soft Cream */
-  }
-}
-
 /* Base Styles */
 body {
   background: var(--background);
