@@ -3,12 +3,26 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { schemaTypes } from './schemas/index.js';
 
+import AnimatedLogo from '../app/(website)/(components)/animated-logo';
 import { theme } from './theme';
+
+// Custom Logo Component
+const StudioLogo = (props) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <AnimatedLogo className="w-10 h-10" />
+    <span style={{ fontWeight: 'bold', color: 'inherit' }}>{props.title}</span>
+  </div>
+);
 
 export default defineConfig({
   name: 'glassleaf',
   title: 'GlassLeaf Tea CMS',
   theme,
+  studio: {
+    components: {
+      logo: StudioLogo,
+    },
+  },
 
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
