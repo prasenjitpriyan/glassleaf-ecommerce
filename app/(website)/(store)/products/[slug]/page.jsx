@@ -2,13 +2,20 @@ import { urlFor } from '@/lib/image';
 import { client } from '@/lib/sanity.client';
 import { groq } from 'next-sanity';
 import Image from 'next/image';
+import AddToCart from '../../../(components)/add-to-cart';
 
 export const revalidate = 60;
 
 export default async function ProductPage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const product = await client.fetch(
-    groq`*[_type == "product" && slug.current == $slug][0]`,
+    groq`*[_type == "product" && slug.current == $slug][0]{
+      _id,
+      "title": name,
+      "slug": slug,
+      "mainImage": images[0],
+      "price": variants[0].price
+    }`,
     { slug }
   );
 
@@ -35,9 +42,7 @@ export default async function ProductPage({ params }) {
         <p className="text-2xl font-semibold text-deep-forest/90 mb-6">
           ${product.price}
         </p>
-        <button className="bg-emerald-leaf text-white px-6 py-3 rounded-lg hover:bg-emerald-leaf/90 transition-colors font-medium shadow-sm hover:shadow-md">
-          Add to Cart
-        </button>
+        <AddToCart product={product} />
       </div>
     </div>
   );

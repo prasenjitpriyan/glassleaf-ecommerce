@@ -5,7 +5,14 @@ import ProductCard from '../../(components)/product-card';
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function ProductsPage() {
-  const products = await client.fetch(groq`*[_type == "product"]`);
+  const products = await client.fetch(groq`*[_type == "product"]{
+    _id,
+    "title": name,
+    "slug": slug,
+    "mainImage": images[0],
+    "price": variants[0].price,
+    "variantName": variants[0].name
+  }`);
 
   return (
     <div>
