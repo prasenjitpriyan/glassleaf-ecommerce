@@ -6,72 +6,51 @@ import { useRef } from 'react';
 
 export default function LeafAnimation() {
   const containerRef = useRef(null);
-  const pathRef = useRef(null);
 
   useGSAP(
     () => {
-      const path = pathRef.current;
-      // Ensure path exists before trying to get length
-      if (!path) return;
+      const leaves = gsap.utils.toArray('.tea-leaf');
 
-      const length = path.getTotalLength();
-
-      // Reset initial state
-      gsap.set(path, {
-        strokeDasharray: length,
-        strokeDashoffset: length,
-        opacity: 1,
-        fill: 'transparent',
-      });
-
-      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
-
-      // Draw the leaf
-      tl.to(path, {
-        strokeDashoffset: 0,
-        duration: 2.5,
-      })
-        // Fade in fill color
-        .to(
-          path,
-          {
-            fill: '#0f8a5f', // emerald-leaf
-            duration: 1,
-            opacity: 0.9,
-            stroke: '#0f4c3a', // deep-forest
-          },
-          '-=1'
-        )
-        // Float animation
-        .to(containerRef.current, {
-          y: -15,
-          rotation: 5,
-          duration: 3,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
+      leaves.forEach((leaf) => {
+        // Randomize initial position
+        gsap.set(leaf, {
+          x: gsap.utils.random(0, window.innerWidth),
+          y: -100,
+          rotation: gsap.utils.random(0, 360),
+          scale: gsap.utils.random(0.5, 1.2),
+          opacity: gsap.utils.random(0.3, 0.7),
         });
+
+        // Animate falling
+        gsap.to(leaf, {
+          y: window.innerHeight + 100,
+          x: `+=${gsap.utils.random(-100, 100)}`,
+          rotation: `+=${gsap.utils.random(180, 360)}`,
+          duration: gsap.utils.random(10, 20),
+          repeat: -1,
+          ease: 'none',
+          delay: gsap.utils.random(0, 10),
+        });
+      });
     },
     { scope: containerRef }
   );
 
   return (
-    <div ref={containerRef} className="w-32 h-32 mx-auto mb-2 relative z-10">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full overflow-visible drop-shadow-lg">
-        <path
-          ref={pathRef}
-          d="M12 22C12 22 17 17 19 12C21 7 18 3 15 2C12 1 8 4 6 9C5 12 7 17 12 22Z M12 22C12 22 11 15 13 8"
-          stroke="#0f8a5f"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="opacity-0"
-        />
-      </svg>
+    <div
+      ref={containerRef}
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {[...Array(6)].map((_, i) => (
+        <svg
+          key={i}
+          className="tea-leaf absolute text-emerald-leaf/10"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="currentColor">
+          <path d="M12 2C12 2 11 8 5 12C11 14 12 22 12 22C12 22 13 14 19 12C13 8 12 2 12 2Z" />
+        </svg>
+      ))}
     </div>
   );
 }

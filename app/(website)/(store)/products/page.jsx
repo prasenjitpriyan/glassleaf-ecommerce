@@ -1,8 +1,8 @@
 import { client } from '@/lib/sanity.client';
 import { groq } from 'next-sanity';
-import ProductCard from '../../(components)/product-card';
+import FeaturedProductList from '../../(components)/featured-product-list';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 60;
 
 export default async function ProductsPage() {
   const products = await client.fetch(groq`*[_type == "product"]{
@@ -11,17 +11,21 @@ export default async function ProductsPage() {
     "slug": slug,
     "mainImage": images[0],
     "price": variants[0].price,
-    "variantName": variants[0].name
+    "description": description
   }`);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8 text-deep-forest">All Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
+    <div className="container mx-auto px-4 py-12 sm:py-20">
+      <div className="text-center mb-16">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-deep-forest font-serif">
+          Our Collection
+        </h1>
+        <p className="text-lg text-deep-forest/70 max-w-2xl mx-auto">
+          Hand-picked, premium teas for the discerning palate.
+        </p>
       </div>
+
+      <FeaturedProductList products={products} />
     </div>
   );
 }

@@ -11,14 +11,18 @@ export const metadata = {
   },
 };
 
+import LeafAnimation from './(components)/leaf-animation';
+import PageTransition from './(components)/page-transition';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <LeafAnimation />
         <Navbar />
-        {children}
+        <PageTransition>{children}</PageTransition>
         <Footer />
       </body>
     </html>

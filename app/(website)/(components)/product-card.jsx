@@ -28,7 +28,7 @@ export default function ProductCard({ product }) {
               {product.title}
             </h3>
             <p className="text-deep-forest/70 mt-1 font-medium">
-              ${product.price}
+              ₹{product.price}
             </p>
           </div>
         </div>

@@ -54,7 +54,7 @@ export default function CartPage() {
                   {item.title}
                 </h3>
                 <p className="font-medium text-deep-forest">
-                  ${item.price * item.quantity}
+                  ₹{item.price * item.quantity}
                 </p>
               </div>
               <div className="flex justify-between items-center mt-4">
@@ -83,7 +83,7 @@ export default function CartPage() {
       <div className="mt-8 p-6 bg-soft-cream/20 rounded-lg border border-emerald-leaf/10">
         <div className="flex justify-between items-center mb-6">
           <span className="text-xl font-bold text-deep-forest">Total</span>
-          <span className="text-2xl font-bold text-deep-forest">${total}</span>
+          <span className="text-2xl font-bold text-deep-forest">₹{total}</span>
         </div>
         <button className="w-full bg-deep-forest text-white py-3 rounded-lg hover:bg-deep-forest/90 transition-colors font-medium text-lg">
           Checkout
