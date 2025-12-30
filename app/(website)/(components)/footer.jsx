@@ -33,14 +33,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/products?category=green"
+                  href="products/green-tea"
                   className="hover:text-emerald-leaf transition-colors">
                   Green Tea
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products?category=black"
+                  href="products/black-tea"
                   className="hover:text-emerald-leaf transition-colors">
                   Black Tea
                 </Link>
