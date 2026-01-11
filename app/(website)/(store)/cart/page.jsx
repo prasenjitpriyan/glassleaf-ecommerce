@@ -85,9 +85,11 @@ export default function CartPage() {
           <span className="text-xl font-bold text-deep-forest">Total</span>
           <span className="text-2xl font-bold text-deep-forest">₹{total}</span>
         </div>
-        <button className="w-full bg-deep-forest text-white py-3 rounded-lg hover:bg-deep-forest/90 transition-colors font-medium text-lg">
-          Checkout
-        </button>
+        <Link href="/checkout">
+          <button className="w-full bg-deep-forest text-white py-3 rounded-lg hover:bg-deep-forest/90 transition-colors font-medium text-lg">
+            Checkout
+          </button>
+        </Link>
       </div>
     </div>
   );

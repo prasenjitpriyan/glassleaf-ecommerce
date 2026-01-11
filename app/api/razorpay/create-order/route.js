@@ -5,6 +5,8 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   try {
     const body = await request.json();
+    console.log('Create Order Request Body:', body); // Debug log
+
     const { amount, currency } = orderSchema.parse(body);
 
     const options = {
@@ -14,9 +16,14 @@ export async function POST(request) {
     };
 
     const order = await razorpay.orders.create(options);
+    console.log('Razorpay Order Created:', order); // Debug log
 
     return NextResponse.json(order);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error('Create Order Error:', error); // Debug log
+    return NextResponse.json(
+      { error: error?.error?.description || error.message },
+      { status: 500 }
+    );
   }
 }

@@ -71,7 +71,31 @@ export default defineConfig({
               ),
 
             // DOCUMENTS (fallback)
-            ...S.documentTypeListItems(),
+            ...S.documentTypeListItems().filter(
+              (listItem) =>
+                ![
+                  'product',
+                  'category',
+                  'variant',
+                  'order',
+                  'payment',
+                  'media.tag',
+                ].includes(listItem.getId())
+            ),
+
+            S.divider(),
+
+            // ORDERS
+            S.listItem()
+              .title('Orders')
+              .icon(() => '🛍️')
+              .child(S.documentTypeList('order').title('All Orders')),
+
+            // PAYMENTS
+            S.listItem()
+              .title('Payments')
+              .icon(() => '💳')
+              .child(S.documentTypeList('payment').title('All Payments')),
           ]),
     }),
 
